@@ -1,0 +1,2 @@
+# nishika_bungaku_asr
+nishikaのasrコンペ用のリポジトリ
