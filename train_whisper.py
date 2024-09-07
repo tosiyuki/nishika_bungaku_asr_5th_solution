@@ -23,7 +23,7 @@ INPUT_PATH = "./data"
 MODEL_NAME = "kotoba-tech/kotoba-whisper-v1.0"
 SEED = 42
 VAL_RATE = 0.0
-MODEL_DIR = "./whisper_finetune_exp002"
+MODEL_DIR = "./whisper_finetune"
 
 class LazySupervisedDataset(torch.utils.data.Dataset):
     """Dataset for supervised fine-tuning.
@@ -115,7 +115,7 @@ if __name__ == "__main__":
     df_train = df_train.dropna(subset=["target_slice"])
 
     # datasetの作成
-    train_audio = [f"fine_tune/{i}.mp3" for i in df_train["DETAIL_ID"].to_list()]
+    train_audio = [f"train_vad_rm_noise/{i}.mp3" for i in df_train["DETAIL_ID"].to_list()]
     train_sentence = df_train["target_slice"].tolist()
     n_train = int(len(train_sentence)* (1-VAL_RATE))
 
@@ -229,7 +229,6 @@ if __name__ == "__main__":
         trainer.train(resume_from_checkpoint=True)
     else:
         trainer.train()
-    trainer.train()
 
     trainer.save_model(MODEL_DIR) #モデル
     processor.save_pretrained(MODEL_DIR) #プロセッサ

@@ -21,6 +21,7 @@ silero-vad = "^5.1"
 tensorflow = "2.17.0"
 inaspeechsegmenter = "^0.7.10"
 tf-keras = "^2.17.0"
+bitsandbytes = "^0.43.3"
 
 
 [tool.poetry.group.dev.dependencies]
