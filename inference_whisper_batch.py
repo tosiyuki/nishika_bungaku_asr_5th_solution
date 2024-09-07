@@ -10,7 +10,7 @@ from tqdm import tqdm
 from torch.utils.data import DataLoader, Dataset
 
 
-BASE_MODEL = "openai/whisper-large-v3"
+BASE_MODEL = "kotoba-tech/kotoba-whisper-v1.0"
 MODEL_NAME = "./whisper_finetune"
 INPUT_PATH = "./data"
 EXP = "001"
